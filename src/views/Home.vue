@@ -1,8 +1,17 @@
 <template>
+  <div v-if="showModal">
+    <Modal
+      :header="modalHeader"
+      :text="modalBodyText"
+      @closeModal="showModal = false"
+    />
+  </div>
   <h1>{{ message }}</h1>
   <input type="text" ref="name" />
   <button @click="handleClick">Click Me!</button>
-  <Modal />
+  <br />
+  <br />
+  <button @click="toggleModal">Show Modal!</button>
 </template>
 
 <script>
@@ -15,12 +24,18 @@ export default {
   data() {
     return {
       message: "Welcome to Vue 3",
+      showModal: false,
+      modalHeader: "Howdy Fellas",
+      modalBodyText: "Let me know your queries",
     };
   },
   methods: {
     handleClick() {
       //Get the DOM object with this.$refs.name
       alert("Too much fun :P");
+    },
+    toggleModal() {
+      this.showModal = !this.showModal;
     },
   },
 };

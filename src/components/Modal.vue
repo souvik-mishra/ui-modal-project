@@ -1,10 +1,25 @@
 <template>
-  <div class="backfrop">
+  <div class="backdrop" @click="closeModal">
     <div class="modal">
-      <p class="modal-content">This is a modal!</p>
+      <h1>{{ header }}</h1>
+      <p class="modal-content">{{ text }}</p>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["header", "text"],
+  data() {
+    return {};
+  },
+  methods: {
+    closeModal() {
+      this.$emit("closeModal");
+    },
+  },
+};
+</script>
 
 <style>
 .modal {
@@ -21,5 +36,10 @@
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
+}
+.modal > h1 {
+  color: darkolivegreen;
+  border: none;
+  padding: 0;
 }
 </style>
