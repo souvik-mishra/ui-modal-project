@@ -4,7 +4,13 @@
       :header="modalHeader"
       :text="modalBodyText"
       @closeModal="showModal = false"
-    />
+    >
+      <h1>Hola Jefe</h1>
+      <p class="modal-content">Get your tacos in order!</p>
+      <!-- <template v-slot:links>
+        <button @click="alert('Peekaboo!')">Click Me</button>
+      </template> -->
+    </Modal>
   </div>
   <h1>{{ message }}</h1>
   <input type="text" ref="name" />
